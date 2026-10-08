@@ -32,18 +32,29 @@ function HandlingMarks() {
 
 export function Contact() {
   const [line, setLine] = useState("apps");
-  const [copied, setCopied] = useState(false);
+  const [copy, setCopy] = useState<"idle" | "copied" | "failed">("idle");
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
+  const addressRef = useRef<HTMLAnchorElement>(null);
   const chosen = options.find((o) => o.id === line)!;
   const href = orderMailto(chosen.id === "unsure" ? undefined : chosen.name);
+  const copied = copy === "copied";
 
-  const copy = async () => {
+  const copyAddress = async () => {
     try {
       await navigator.clipboard.writeText(contact.email);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
+      setCopy("copied");
+      window.setTimeout(() => setCopy("idle"), 1800);
     } catch {
-      window.location.href = `mailto:${contact.email}`;
+      // Clipboard blocked (permissions, older browsers): select the address so it can be copied by hand.
+      const node = addressRef.current;
+      if (node) {
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+      }
+      setCopy("failed");
     }
   };
 
@@ -135,7 +146,7 @@ export function Contact() {
               </a>
               <button
                 type="button"
-                onClick={copy}
+                onClick={copyAddress}
                 className="inline-flex min-h-[3.25rem] items-center gap-2 rounded-[3px] border-2 border-carton-ink/70 px-4 py-3 text-[0.9375rem] font-semibold transition-[border-color,scale] duration-150 hover:border-carton-ink active:scale-[0.96]"
               >
                 <span className="relative size-4">
@@ -154,15 +165,25 @@ export function Contact() {
                     strokeWidth={2.4}
                   />
                 </span>
-                {copied ? "Copied" : "Copy email address"}
+                {copied ? "Copied" : copy === "failed" ? "Address selected below" : "Copy email address"}
               </button>
               <span className="sr-only" aria-live="polite">
-                {copied ? "Email address copied" : ""}
+                {copied
+                  ? "Email address copied"
+                  : copy === "failed"
+                    ? "Could not copy automatically. The email address is selected so you can copy it."
+                    : ""}
               </span>
             </div>
             <p className="mt-4 text-[0.9375rem]">
               Or write directly to{" "}
-              <a href={`mailto:${contact.email}`} className="font-semibold underline decoration-carton-ink/45 underline-offset-[0.22em] hover:decoration-carton-ink">
+              <a
+                ref={addressRef}
+                href={`mailto:${contact.email}`}
+                className={`font-semibold underline decoration-carton-ink/45 underline-offset-[0.22em] hover:decoration-carton-ink ${
+                  copy === "failed" ? "bg-satin/70 px-1" : ""
+                }`}
+              >
                 {contact.email}
               </a>
               .
