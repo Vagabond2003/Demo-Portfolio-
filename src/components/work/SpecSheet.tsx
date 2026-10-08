@@ -102,7 +102,7 @@ export function SpecSheet({ project, index, total }: Props) {
               >
                 <span
                   aria-hidden
-                  className={`mt-px grid size-[1.375rem] shrink-0 place-items-center rounded-full border border-ink text-[0.6875rem] font-bold tabular-nums transition-colors duration-150 [font-stretch:80%] ${
+                  className={`mt-px grid size-[1.375rem] shrink-0 place-items-center rounded-full border border-ink text-[0.75rem] font-bold tabular-nums transition-colors duration-150 [font-stretch:80%] ${
                     active === n ? "bg-navy text-thread" : "bg-paper text-ink"
                   }`}
                 >
@@ -321,7 +321,7 @@ export function CareLabel({ items, note = "By GitHub's count of the code in the 
     <div className="relative mx-auto max-w-[300px] lg:mx-0">
       <div className="relative bg-satin px-6 pb-6 pt-7 text-[#3b3f4a] shadow-[0_1px_2px_rgb(20_26_46/0.16),0_10px_22px_-12px_rgb(20_26_46/0.35)]">
         <span aria-hidden className="absolute inset-x-0 top-0 h-3 bg-[#ecece6] shadow-[inset_0_-1px_0_rgb(0_0_0/0.08)]" />
-        <p className="text-center text-[0.6875rem] font-semibold uppercase tracking-[0.2em] [font-stretch:75%]">Composition</p>
+        <p className="text-center text-[0.75rem] font-semibold uppercase tracking-[0.2em] [font-stretch:75%]">Composition</p>
         <ul className="mt-3 space-y-1 text-center">
           {items.map((item) => (
             <li key={item.label} className="text-[0.9375rem] font-semibold uppercase tracking-[0.06em] [font-stretch:85%]">

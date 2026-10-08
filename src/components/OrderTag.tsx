@@ -6,7 +6,7 @@ import { orderMailto } from "@/lib/mailto";
 export function OrderTagFace({ qr }: { qr: string }) {
   return (
     <div className="px-5 pb-4 pt-12">
-      <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] [font-stretch:75%]">
+      <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] [font-stretch:75%]">
         {contact.monogram} · Order tag
       </p>
       <p className="mt-1 text-[1.5rem] font-extrabold uppercase leading-[0.95] tracking-[-0.01em] [font-stretch:78%]">
@@ -31,9 +31,9 @@ export function OrderTagFace({ qr }: { qr: string }) {
         Email your brief
         <ArrowUpRight aria-hidden className="size-4" strokeWidth={2} />
       </a>
-      <p className="mt-2 break-all text-center text-[0.6875rem] leading-tight">{contact.email}</p>
+      <p className="mt-2 break-all text-center text-[0.75rem] leading-tight">{contact.email}</p>
 
-      <dl className="mt-3 flex items-baseline justify-between gap-2 border-t border-kraft-ink/30 pt-2 text-[0.6875rem] uppercase tracking-[0.08em] [font-stretch:75%]">
+      <dl className="mt-3 flex items-baseline justify-between gap-2 border-t border-kraft-ink/30 pt-2 text-[0.75rem] uppercase tracking-[0.08em] [font-stretch:75%]">
         <dt className="font-semibold">Price</dt>
         <dd className="font-bold">Quoted per project</dd>
       </dl>

@@ -88,7 +88,7 @@ export function Services() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-4 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] [font-stretch:75%]">
+                  <p className="mt-4 text-[0.75rem] font-semibold uppercase tracking-[0.1em] [font-stretch:75%]">
                     Built like
                   </p>
                   <p className="mt-0.5 text-[0.9375rem] font-semibold">
