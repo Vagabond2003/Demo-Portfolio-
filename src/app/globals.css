@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+@theme {
+  --color-table: #dfe2d9;
+  --color-paper: #f4f5f0;
+  --color-paper-2: #e9ebe4;
+  --color-grid: #9dbfbe;
+  --color-ink: #141a2e;
+  --color-ink-2: #474f66;
+  --color-ink-3: #646b80;
+  --color-rule: rgb(20 26 46 / 0.16);
+  --color-navy: #17213f;
+  --color-navy-2: #0e1631;
+  --color-thread: #eee6cc;
+  --color-gold: #c9a44c;
+  --color-kraft: #b98c5d;
+  --color-kraft-ink: #2a2018;
+  --color-carton: #b2875a;
+  --color-carton-ink: #221a13;
+  --color-stamp: #c8322a;
+  --color-stamp-2: #a8271f;
+  --color-satin: #fbfbf8;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-stencil: var(--font-stencil-face), var(--font-archivo), sans-serif;
+  --font-bangla: var(--font-anek), var(--font-archivo), sans-serif;
+}
+
+/* ---------- Base and browser surfaces ---------- */
+
+html {
+  background: var(--color-table);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scrollbar-color: var(--color-navy) var(--color-table);
+  scrollbar-width: thin;
+  caret-color: var(--color-stamp);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  background: var(--color-table);
+  min-height: 100dvh;
+}
+
+::selection {
+  background: var(--color-navy);
+  color: var(--color-thread);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-table);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-navy);
+  border: 3px solid var(--color-table);
+  border-radius: 999px;
+}
+
+:focus-visible {
+  outline: 2px dashed var(--color-stamp);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+a {
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+[lang="bn"] {
+  font-family: var(--font-bangla);
+}
+
+/* ---------- World materials ---------- */
+
+@layer components {
+  /* Marker paper: printed crosses on a cool sheet. */
+  .paper {
+    background-color: var(--color-paper);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M14 11.5v5M11.5 14h5' stroke='%239DBFBE' stroke-width='1' opacity='.75'/%3E%3C/svg%3E");
+    background-position: -14px -14px;
+  }
+
+  .sheet {
+    position: relative;
+    box-shadow:
+      0 1px 0 rgb(20 26 46 / 0.05),
+      0 1px 2px rgb(20 26 46 / 0.06),
+      0 18px 40px -22px rgb(20 26 46 / 0.32);
+  }
+
+  /* Satin-woven label: fine weft ribs with a twill highlight. */
+  .woven {
+    background-color: var(--color-navy);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='4'%3E%3Cpath d='M0 3.5h8' stroke='%23000' stroke-opacity='.28' stroke-width='1'/%3E%3Cpath d='M0 4L8 0' stroke='%23fff' stroke-opacity='.045' stroke-width='1'/%3E%3C/svg%3E");
+  }
+
+  .woven-text {
+    color: var(--color-thread);
+    text-shadow:
+      0 1px 0 rgb(0 0 0 / 0.35),
+      0 -0.5px 0 rgb(255 255 255 / 0.12);
+  }
+
+  .kraft {
+    background-color: var(--color-kraft);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .12 0 0 0 0 .07 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    color: var(--color-kraft-ink);
+  }
+
+  .carton {
+    background-color: var(--color-carton);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .15 0 0 0 0 .1 0 0 0 0 .05 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E"),
+      repeating-linear-gradient(90deg, rgb(34 26 19 / 0.045) 0 2px, transparent 2px 9px);
+    color: var(--color-carton-ink);
+  }
+
+  /* Field labels printed on the tech-pack form. */
+  .field-label {
+    font-size: 0.6875rem;
+    line-height: 1.2;
+    font-weight: 600;
+    font-stretch: 75%;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+
+  .field-value {
+    font-size: 0.9375rem;
+    line-height: 1.35;
+    font-weight: 500;
+    font-stretch: 92%;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-ink);
+  }
+
+  .seam {
+    stroke-dasharray: 5 4;
+  }
+
+  .btn-order {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-stamp);
+    color: var(--color-paper);
+    font-weight: 700;
+    font-stretch: 85%;
+    letter-spacing: 0.02em;
+    border-radius: 3px;
+    transition-property: background-color, scale;
+    transition-duration: 160ms;
+    transition-timing-function: var(--ease-out-quint);
+  }
+  .btn-order:hover {
+    background: var(--color-stamp-2);
+  }
+  .btn-order:active {
+    scale: 0.96;
+  }
+
+  .link-ink {
+    text-decoration-line: underline;
+    text-decoration-color: rgb(20 26 46 / 0.35);
+    transition-property: text-decoration-color, color;
+    transition-duration: 160ms;
+  }
+  .link-ink:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .img-outline {
+    outline: 1px solid oklch(0 0 0 / 0.1);
+    outline-offset: -1px;
+  }
+}
+
+/* ---------- Motion: initial states only when motion is allowed ---------- */
+
+html.motion .js-weave {
+  clip-path: inset(0 100% 0 0);
+}
+html.motion .js-weave-text {
+  clip-path: inset(0 0 100% 0);
+}
+html.motion .js-rise {
+  opacity: 0;
+}
+html.motion .js-line > span {
+  transform: translateY(108%);
+}
+html.motion .js-stamp,
+html.motion .js-tag {
+  opacity: 0;
+}
+
+/* If scripts never arrive, everything shows anyway. */
+html.motion:not(.gsap-ready) :is(.js-weave, .js-weave-text, .js-rise, .js-line > span, .js-stamp, .js-tag) {
+  animation: failsafe-reveal 0.01s 2.6s forwards;
+}
+
+@keyframes failsafe-reveal {
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
