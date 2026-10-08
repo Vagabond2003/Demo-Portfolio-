@@ -37,7 +37,7 @@ export function WovenLabel({ children, footer, className = "", fieldClassName = 
             />
           </svg>
         </div>
-        <div className={`woven-text relative px-7 pb-5 pt-6 sm:px-10 sm:pb-7 sm:pt-8 lg:px-12 ${textClassName}`}>
+        <div className={`woven-text relative px-7 pb-5 pt-6 sm:px-10 sm:pb-6 sm:pt-7 lg:px-12 ${textClassName}`}>
           {children}
           {footer ? (
             <div className="mt-4 border-t border-gold/60 pt-3 sm:mt-6 sm:pt-4">{footer}</div>

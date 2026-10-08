@@ -107,7 +107,7 @@ export function Cover({ qr }: { qr: string }) {
             </div>
           </div>
 
-          <div className="grid gap-y-10 px-4 pb-10 pt-7 sm:px-8 sm:pt-9 lg:grid-cols-12 lg:gap-x-10 lg:px-12 lg:pb-14 lg:pt-12">
+          <div className="grid gap-y-10 px-4 pb-10 pt-7 sm:px-8 sm:pt-9 lg:grid-cols-12 lg:gap-x-10 lg:px-12 lg:pb-14 lg:pt-10">
             {/* Left: the label, the offer, the actions */}
             <div className="lg:col-span-8">
               <div className="relative">
@@ -126,13 +126,13 @@ export function Cover({ qr }: { qr: string }) {
                     </div>
                   }
                 >
-                  <h1 className="text-[clamp(2.55rem,7.4vw,5.6rem)] font-black uppercase leading-[0.9] tracking-[-0.005em] [font-stretch:125%]">
+                  <h1 className="text-[clamp(2.55rem,6.9vw,5.2rem)] font-black uppercase leading-[0.9] tracking-[-0.005em] [font-stretch:125%]">
                     Nafiz Mahmud <br className="hidden sm:block" />
                     Rimon
                   </h1>
                 </WovenLabel>
                 <div
-                  className="js-stamp pointer-events-none absolute -bottom-[60px] right-0 z-10 w-[134px] sm:-right-6 sm:-top-12 sm:bottom-auto sm:w-[196px] lg:-right-16 lg:w-[212px]"
+                  className="js-stamp pointer-events-none absolute -bottom-[60px] right-0 z-10 w-[134px] sm:-right-6 sm:-top-8 sm:bottom-auto sm:w-[196px] lg:-right-16 lg:-top-6 lg:w-[212px]"
                   style={{ transform: "rotate(-9deg)" }}
                 >
                   <Stamp top="FOR PRODUCTION" main="APPROVED" bottom="3 LIVE · 1 SAMPLE" className="block h-auto w-full" />
@@ -140,7 +140,7 @@ export function Cover({ qr }: { qr: string }) {
                 <p className="sr-only">Approved for production: three live products and one sample.</p>
               </div>
 
-              <p className="mt-12 text-[clamp(2.05rem,4.6vw,3.9rem)] font-bold leading-[1.02] tracking-[-0.028em] sm:mt-14">
+              <p className="mt-12 text-[clamp(2.05rem,4.6vw,3.9rem)] font-bold leading-[1.02] tracking-[-0.028em] sm:mt-12">
                 <span className="js-line block overflow-hidden pb-[0.06em]">
                   <span className="block">Built to spec.</span>
                 </span>
@@ -148,11 +148,11 @@ export function Cover({ qr }: { qr: string }) {
                   <span className="block">Shipped to production.</span>
                 </span>
               </p>
-              <p className="js-rise mt-5 max-w-[58ch] text-[1.0625rem] leading-relaxed text-ink-2 sm:text-[1.125rem]">
+              <p className="js-rise mt-4 max-w-[58ch] text-[1.0625rem] leading-relaxed text-ink-2 sm:text-[1.125rem]">
                 I&apos;m Nafiz, a full-stack developer in Bangladesh. I build web apps, portals, internal tools and
                 marketing sites, from the first brief to a live, working release.
               </p>
-              <div className="js-rise mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <div className="js-rise mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <a href={orderMailto()} className="btn-order px-5 py-3 text-[1rem]">
                   Place an order
                   <ArrowUpRight aria-hidden className="size-[18px]" strokeWidth={2} />
