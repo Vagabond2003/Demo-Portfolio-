@@ -21,6 +21,9 @@ export function SpecSheet({ project, index, total }: Props) {
   const rootRef = useRef<HTMLElement>(null);
   const [active, setActive] = useState<number | null>(null);
   const [colorway, setColorway] = useState(project.colorways[0]?.id ?? "");
+  // Alternate colorways load only once someone shows interest, not on every visit.
+  const [primed, setPrimed] = useState(false);
+  const prime = () => setPrimed(true);
   const Flat = flats[project.flat];
   const live = project.status === "live";
   const hasPhoto = project.colorways.length > 0;
@@ -119,11 +122,11 @@ export function SpecSheet({ project, index, total }: Props) {
 
   const photoPanel = hasPhoto ? (
     <div className={`lg:col-span-7 ${flipped ? "lg:order-1" : ""}`}>
-      <figure>
+      <figure onPointerEnter={prime} onFocusCapture={prime} onTouchStart={prime}>
         <div className="js-board relative">
           <BinderClip className="absolute -top-[30px] left-1/2 z-20 w-[92px] -translate-x-1/2 sm:w-[104px]" />
           <div className="js-print relative aspect-[16/10] overflow-hidden border border-rule bg-paper-2">
-            {project.colorways.map((c) => (
+            {project.colorways.filter((c) => primed || c.id === current.id).map((c) => (
               <Image
                 key={c.id}
                 src={c.image}
