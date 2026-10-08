@@ -9,9 +9,7 @@ export function Footer() {
           <p className="text-[1.75rem] font-black uppercase leading-none tracking-[0.01em] [font-stretch:125%]">
             {contact.name}
           </p>
-          <p className="mt-2 text-[0.8125rem] font-semibold uppercase tracking-[0.16em] opacity-85 [font-stretch:80%]">
-            Full-stack developer · Made in Bangladesh
-          </p>
+          <p className="mt-2 text-[0.9375rem] font-semibold opacity-90">Full-stack developer, made in Bangladesh</p>
         </div>
         <div className="max-w-[60ch] space-y-1.5 text-[0.8125rem] leading-relaxed opacity-85 lg:text-right">
           <p>

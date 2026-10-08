@@ -228,9 +228,7 @@ export function SpecSheet({ project, index, total }: Props) {
             >
               {project.name}
             </h3>
-            <p className="mt-3 text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-ink-2 [font-stretch:80%]">
-              {project.kind}
-            </p>
+            <p className="mt-3 text-[1.0625rem] font-semibold text-ink-2 [font-stretch:90%]">{project.kind}</p>
           </div>
           <div className="lg:col-span-6">
             <p className="max-w-[60ch] text-[1.0625rem] leading-relaxed">{project.summary}</p>
