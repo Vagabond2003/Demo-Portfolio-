@@ -95,7 +95,7 @@ export function Services() {
                     {line.proof.map((p, j) => (
                       <span key={p.href + p.label}>
                         {j > 0 ? <span aria-hidden> · </span> : null}
-                        <a href={p.href} className="underline decoration-kraft-ink/45 underline-offset-[0.2em] hover:decoration-kraft-ink">
+                        <a href={p.href} className="hit-area underline decoration-kraft-ink/45 underline-offset-[0.2em] hover:decoration-kraft-ink">
                           {p.label}
                         </a>
                       </span>

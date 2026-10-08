@@ -196,6 +196,16 @@ dd {
     text-decoration-color: currentColor;
   }
 
+  /* Standalone text links get a finger-sized hit area without moving the layout. */
+  .hit-area {
+    position: relative;
+  }
+  .hit-area::after {
+    content: "";
+    position: absolute;
+    inset: -8px -6px;
+  }
+
   .img-outline {
     outline: 1px solid oklch(0 0 0 / 0.1);
     outline-offset: -1px;

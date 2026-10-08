@@ -18,7 +18,7 @@ export function Footer() {
           </p>
           <p>
             © 2026 {contact.name} · Built with Next.js, GSAP and Lenis ·{" "}
-            <a href={contact.github} className="underline decoration-thread/40 underline-offset-[0.2em] hover:decoration-thread" target="_blank" rel="noreferrer">
+            <a href={contact.github} className="hit-area underline decoration-thread/40 underline-offset-[0.2em] hover:decoration-thread" target="_blank" rel="noreferrer">
               GitHub
             </a>
           </p>

@@ -170,7 +170,7 @@ export function SpecSheet({ project, index, total }: Props) {
         </p>
         <a
           href={project.sourceUrl}
-          className="link-ink mt-6 inline-flex items-center gap-1.5 text-[1rem] font-semibold"
+          className="link-ink hit-area mt-6 inline-flex items-center gap-1.5 text-[1rem] font-semibold"
           target="_blank"
           rel="noreferrer"
         >
@@ -244,13 +244,13 @@ export function SpecSheet({ project, index, total }: Props) {
                 {project.note}
               </p>
             ) : null}
-            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-4">
               {project.liveUrl ? (
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[1rem] font-bold text-stamp underline decoration-stamp/40 underline-offset-[0.22em] transition-[text-decoration-color] duration-150 hover:decoration-stamp"
+                  className="hit-area inline-flex items-center gap-1.5 text-[1rem] font-bold text-stamp underline decoration-stamp/40 underline-offset-[0.22em] transition-[text-decoration-color] duration-150 hover:decoration-stamp"
                 >
                   Open the live site
                   <ArrowUpRight aria-hidden className="size-4" strokeWidth={2.25} />
@@ -261,7 +261,7 @@ export function SpecSheet({ project, index, total }: Props) {
                 href={project.sourceUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="link-ink inline-flex items-center gap-1.5 text-[1rem] font-semibold"
+                className="link-ink hit-area inline-flex items-center gap-1.5 text-[1rem] font-semibold"
               >
                 Read the source
                 <ArrowUpRight aria-hidden className="size-4" strokeWidth={2} />

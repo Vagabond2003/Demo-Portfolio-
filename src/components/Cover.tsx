@@ -157,7 +157,7 @@ export function Cover({ qr }: { qr: string }) {
                   Place an order
                   <ArrowUpRight aria-hidden className="size-[18px]" strokeWidth={2} />
                 </a>
-                <a href="#work" className="link-ink inline-flex items-center gap-1.5 text-[1rem] font-semibold">
+                <a href="#work" className="link-ink hit-area inline-flex items-center gap-1.5 text-[1rem] font-semibold">
                   See the four samples
                   <ArrowDown aria-hidden className="size-4" strokeWidth={2} />
                 </a>

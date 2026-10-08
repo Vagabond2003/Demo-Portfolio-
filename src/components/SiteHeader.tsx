@@ -45,7 +45,7 @@ export function SiteHeader() {
         Skip to the work
       </a>
       <div className="mx-auto flex h-14 max-w-[1360px] items-center gap-4 px-3 sm:px-6 lg:px-10">
-        <a href="#cover" className="group flex items-center gap-2.5" aria-label={`${contact.name}, back to top`}>
+        <a href="#cover" className="hit-area group flex items-center gap-2.5" aria-label={`${contact.name}, back to top`}>
           <span
             aria-hidden
             className="woven woven-text grid h-[22px] place-items-center rounded-[2px] px-1.5 text-[0.625rem] font-extrabold tracking-[0.14em] [font-stretch:110%]"
