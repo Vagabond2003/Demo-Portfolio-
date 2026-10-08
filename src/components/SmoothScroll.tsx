@@ -10,7 +10,18 @@ declare global {
   }
 }
 
-const HEADER_OFFSET = -64;
+const HEADER_SPACE = 80;
+
+/**
+ * Land a section's content, not its top padding, just under the fixed header.
+ * Lenis already subtracts the element's scroll-margin-top, so add it back.
+ */
+function anchorOffset(target: HTMLElement, viaLenis: boolean) {
+  const style = getComputedStyle(target);
+  const padding = parseFloat(style.paddingTop) || 0;
+  const margin = viaLenis ? parseFloat(style.scrollMarginTop) || 0 : 0;
+  return padding - HEADER_SPACE + margin;
+}
 
 /** Smooth wheel scrolling (skipped for reduced motion) and in-page anchor handling. */
 export function SmoothScroll() {
@@ -36,10 +47,11 @@ export function SmoothScroll() {
       const target = id ? document.getElementById(id) : null;
       if (!target) return;
       event.preventDefault();
+      const offset = id === "cover" ? 0 : anchorOffset(target, Boolean(lenis));
       if (lenis) {
-        lenis.scrollTo(target, { offset: HEADER_OFFSET, duration: 1.2 });
+        lenis.scrollTo(id === "cover" ? 0 : target, { offset, duration: 1.2 });
       } else {
-        const top = target.getBoundingClientRect().top + window.scrollY + HEADER_OFFSET;
+        const top = id === "cover" ? 0 : target.getBoundingClientRect().top + window.scrollY + offset;
         window.scrollTo({ top, behavior: "auto" });
       }
       history.replaceState(null, "", `#${id}`);
