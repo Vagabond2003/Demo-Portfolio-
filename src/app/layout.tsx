@@ -27,7 +27,7 @@ const anek = Anek_Bangla({
   preload: false,
 });
 
-const siteUrl = "https://nafiz-portfolio.vercel.app";
+const siteUrl = "https://vagabond2003.github.io/Demo-Portfolio-/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -48,7 +48,7 @@ export function About() {
             {photo ? (
               <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
-                  src={PHOTO}
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${PHOTO}`}
                   alt={`Portrait of ${contact.name}`}
                   fill
                   sizes="(min-width: 1024px) 30vw, 340px"
