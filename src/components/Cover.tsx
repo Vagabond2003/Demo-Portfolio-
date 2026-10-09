@@ -132,7 +132,7 @@ export function Cover({ qr }: { qr: string }) {
                   </h1>
                 </WovenLabel>
                 <div
-                  className="js-stamp pointer-events-none absolute -bottom-[60px] right-0 z-10 w-[134px] sm:-right-6 sm:-top-8 sm:bottom-auto sm:w-[196px] lg:-right-16 lg:-top-6 lg:w-[212px]"
+                  className="js-stamp pointer-events-none absolute -bottom-[60px] right-0 z-10 w-[134px] sm:-bottom-[92px] sm:-right-3 sm:w-[176px] lg:-right-16 lg:-top-6 lg:bottom-auto lg:w-[212px]"
                   style={{ transform: "rotate(-9deg)" }}
                 >
                   <Stamp top="FOR PRODUCTION" main="APPROVED" bottom="3 LIVE · 1 SAMPLE" className="block h-auto w-full" />
