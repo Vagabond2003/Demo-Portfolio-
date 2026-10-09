@@ -71,9 +71,14 @@ body {
 }
 
 :focus-visible {
-  outline: 2px dashed var(--color-stamp);
+  /* Each material sets its own ring colour so focus stays at 3:1 or better on it. */
+  outline: 2px dashed var(--focus-ring, var(--color-stamp));
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
 }
 
 a {
@@ -118,6 +123,7 @@ dd {
   /* Satin-woven label: fine weft ribs with a twill highlight. */
   .woven {
     background-color: var(--color-navy);
+    --focus-ring: var(--color-thread);
     background-image:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='4'%3E%3Cpath d='M0 3.5h8' stroke='%23000' stroke-opacity='.28' stroke-width='1'/%3E%3Cpath d='M0 4L8 0' stroke='%23fff' stroke-opacity='.045' stroke-width='1'/%3E%3C/svg%3E");
   }
@@ -131,12 +137,14 @@ dd {
 
   .kraft {
     background-color: var(--color-kraft);
+    --focus-ring: var(--color-kraft-ink);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .12 0 0 0 0 .07 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
     color: var(--color-kraft-ink);
   }
 
   .carton {
     background-color: var(--color-carton);
+    --focus-ring: var(--color-carton-ink);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .15 0 0 0 0 .1 0 0 0 0 .05 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
     color: var(--color-carton-ink);
   }
