@@ -167,7 +167,7 @@ export function Cover({ qr }: { qr: string }) {
             {/* Right: the order tag pinned to the sheet, and the spec block */}
             <div className="flex flex-col items-center lg:col-span-4 lg:items-stretch">
               <div className="js-tag flex justify-center lg:-mt-12">
-                <HangTag ref={tagRef} stringLength={64} width={236} label="Order tag. Drag it to swing it.">
+                <HangTag ref={tagRef} stringLength={64} width={236} label="Order tag">
                   <OrderTagFace qr={qr} />
                 </HangTag>
               </div>

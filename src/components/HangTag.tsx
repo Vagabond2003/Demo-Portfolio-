@@ -51,7 +51,9 @@ export const HangTag = forwardRef<HangTagHandle, HangTagProps>(function HangTag(
       if (!rig) return;
       const mm = gsap.matchMedia();
 
-      mm.add(motionQueries.motion, () => {
+      mm.add({ motion: motionQueries.motion, finePointer: "(pointer: fine)" }, (context) => {
+        const { motion, finePointer } = context.conditions as { motion: boolean; finePointer: boolean };
+        if (!motion) return;
         const p = physics.current;
         p.active = true;
         gsap.set(rig, { transformOrigin: "50% 0%" });
@@ -74,8 +76,10 @@ export const HangTag = forwardRef<HangTagHandle, HangTagProps>(function HangTag(
         };
         gsap.ticker.add(tick);
 
+        // Dragging needs touch-action: none, which would trap page swipes on touch screens,
+        // so only mouse and trackpad users get to grab the tag. Touch gets a tap-to-swing.
         let draggables: Draggable[] = [];
-        if (draggable) {
+        if (draggable && finePointer) {
           let last = { r: 0, t: 0 };
           draggables = Draggable.create(rig, {
             type: "rotation",
@@ -105,13 +109,20 @@ export const HangTag = forwardRef<HangTagHandle, HangTagProps>(function HangTag(
           if (event.pointerType !== "mouse" || p.dragging) return;
           p.vel += gsap.utils.clamp(-30, 30, event.movementX) * 3;
         };
+        const tap = (event: PointerEvent) => {
+          if (event.pointerType === "mouse") return;
+          const box = rig.getBoundingClientRect();
+          p.vel += event.clientX < box.left + box.width / 2 ? 140 : -140;
+        };
         rig.addEventListener("pointerenter", nudge);
+        rig.addEventListener("pointerdown", tap, { passive: true });
 
         return () => {
           p.active = false;
           gsap.ticker.remove(tick);
           draggables.forEach((d) => d.kill());
           rig.removeEventListener("pointerenter", nudge);
+          rig.removeEventListener("pointerdown", tap);
           gsap.set(rig, { rotation: 0 });
         };
       });
