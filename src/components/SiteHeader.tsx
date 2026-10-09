@@ -52,13 +52,13 @@ export function SiteHeader() {
           >
             {contact.monogram}
           </span>
-          <span className="hidden text-[0.9375rem] font-bold tracking-[-0.01em] [font-stretch:90%] sm:inline">
+          <span className="hidden text-[0.9375rem] font-bold tracking-[-0.01em] [font-stretch:90%] lg:inline">
             {contact.name}
           </span>
-          <span className="text-[0.9375rem] font-bold [font-stretch:90%] sm:hidden">N. M. Rimon</span>
+          <span className="text-[0.9375rem] font-bold [font-stretch:90%] lg:hidden">N. M. Rimon</span>
         </a>
 
-        <nav aria-label="Sections" className="ml-auto hidden lg:block">
+        <nav aria-label="Sections" className="ml-auto hidden md:block">
           <ul className="flex items-center gap-1">
             {navItems.map((item) => {
               const isActive = current.id === item.id;
@@ -67,14 +67,14 @@ export function SiteHeader() {
                   <a
                     href={`#${item.id}`}
                     aria-current={isActive ? "true" : undefined}
-                    className={`relative block px-3 py-2 text-[0.8125rem] font-semibold uppercase tracking-[0.08em] [font-stretch:80%] transition-colors duration-150 ${
+                    className={`relative block px-2.5 py-2 text-[0.8125rem] lg:px-3 font-semibold uppercase tracking-[0.08em] [font-stretch:80%] transition-colors duration-150 ${
                       isActive ? "text-ink" : "text-ink-3 hover:text-ink"
                     }`}
                   >
                     {item.label}
                     <span
                       aria-hidden
-                      className={`absolute inset-x-3 bottom-1 h-px origin-left bg-ink transition-transform duration-300 ease-out-quint ${
+                      className={`absolute inset-x-2.5 bottom-1 h-px origin-left bg-ink lg:inset-x-3 transition-transform duration-300 ease-out-quint ${
                         isActive ? "scale-x-100" : "scale-x-0"
                       }`}
                     />
@@ -85,7 +85,7 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <p className="ml-auto hidden items-baseline gap-2 border-l border-rule pl-4 md:flex lg:ml-0" aria-live="off">
+        <p className="hidden items-baseline gap-2 border-l border-rule pl-4 lg:flex">
           <span className="field-label">Sheet</span>
           <span className="field-value w-[3.6rem]">
             {String(active + 1).padStart(2, "0")} / {String(sheets.length).padStart(2, "0")}
